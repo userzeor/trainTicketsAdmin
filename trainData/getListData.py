@@ -14,13 +14,13 @@ class trainData() :
         from_station = cStationName.cityCode.get(self.departureStation)
         to_station = cStationName.cityCode.get(self.destinationStation)
         # print(from_station, to_station)
-        dataUrl = 'https://kyfw.12306.cn/otn/leftTicket/query'
+        dataUrl = 'https://kyfw.12306.cn/otn/leftTicket/queryA'
         r = requests.get(dataUrl, params={'leftTicketDTO.train_date': self.date,
                                           'leftTicketDTO.from_station': from_station,
                                           'leftTicketDTO.to_station': to_station,
                                           'purpose_codes': 'ADULT'
                                           }, verify=False)
-        # print(r.json()['data'])
+        # print(r.json())
         resData = r.json()['data']
 
         trainData = resData['result']  # 火车所有信息

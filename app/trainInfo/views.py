@@ -12,12 +12,12 @@ CORS(train)
 @train.route('/getTrainList', methods=['POST'])
 def getlist():
     print(request.get_json())
-    # print(request.form)
     departureStation = request.get_json()["departureStation"]  # 获取POST请求参数
     destinationStation = request.get_json()["destinationStation"]
     startDate = request.get_json()["startDate"]
     endDate = request.get_json()["endDate"]
     trainList = getListData.trainData(departureStation, destinationStation, startDate).gettrainInfo()
+    print(trainList)
     resp = {
         "status": "ok",
         "trainList": trainList
